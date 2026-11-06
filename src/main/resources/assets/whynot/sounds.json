@@ -1,0 +1,20 @@
+{
+  "aurous": {
+    "subtitle": "sounds.whynot.aurous",
+    "sounds": [
+      "whynot:sound_aurous"
+    ]
+  },
+  "uwu": {
+    "subtitle": "sounds.whynot.uwu",
+    "sounds": [
+      "whynot:uwu"
+    ]
+  },
+  "peanut": {
+    "subtitle": "sounds.whynot.peanut",
+    "sounds": [
+      "whynot:peanut"
+    ]
+  }
+}

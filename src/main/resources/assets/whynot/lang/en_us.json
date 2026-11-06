@@ -1,0 +1,14 @@
+{
+  "whynot.configuration.title": "WhyNot Configs",
+  "whynot.configuration.section.whynot.common.toml": "WhyNot Configs",
+  "whynot.configuration.section.whynot.common.toml.title": "WhyNot Configs",
+  "whynot.configuration.fondo" : "Fondo Contador Bossbar",
+  "whynot.configuration.loop": "Loop toggle",
+  "whynot.configuration.mins": "Mins toggle",
+  "key.whynot.start": "Empezar Contador",
+  "key.whynot.config": "Configurar Contador",
+  "key.whynot.stop": "Detener Contador",
+  "sounds.whynot.aurous": "Auron Gritando",
+  "sounds.whynot.uwu" : "UwU",
+  "sounds.whynot.peanut" : "Peanut Losing It"
+}
