@@ -2,7 +2,7 @@
 WhyNot
 =======
 <p align="center">
-<img src="https://github.com/ROSKKO/El-Contador/blob/a845f025ce7e4eb492b7afb167bcda3aed7ba004/src/main/resources/icon.png">
+<img src="https://github.com/ROSKKO/forFuture/blob/6e33eb03bf6ae3d4040f8c77bba331792cf1f197/ui/icon.png">
 </p>
 <br>
 

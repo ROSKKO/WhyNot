@@ -31,15 +31,10 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.client.settings.KeyModifier;
 
-// This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = WhyNot.MODID, dist = Dist.CLIENT)
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = WhyNot.MODID, value = Dist.CLIENT)
 public class WhyNotClient {
     public WhyNotClient(ModContainer container) {
-        // Allows NeoForge to create a config screen for this mod's configs.
-        // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
-        // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
@@ -92,7 +87,8 @@ public class WhyNotClient {
 
             if (mc.player != null){
                 mc.player.displayClientMessage(
-                        Component.literal("Contador Iniciado").withStyle(Style.EMPTY.withColor(ChatFormatting.RED).withBold(true)),
+                        Component.translatable("whynot.contadorIniciado")
+                        .withStyle(Style.EMPTY.withColor(ChatFormatting.RED).withBold(true)),
                         true
                 );
                 mc.level.playLocalSound(
@@ -126,8 +122,9 @@ public class WhyNotClient {
 
                     if(mc.player!=null) {
                         mc.player.displayClientMessage(
-                                Component.literal("Tiempo Cumplido - Loop "+Config.Loop.get())
-                                        .withStyle(Style.EMPTY.withColor(ChatFormatting.GREEN).withBold(true)), true
+                                Component.literal(
+                                    Component.translatable("whynot.tiempoCumplidoLoop").toString()+Config.Loop.get()
+                                ).withStyle(Style.EMPTY.withColor(ChatFormatting.GREEN).withBold(true)), true
                         );
                         mc.level.playLocalSound(
                                 mc.player.getX(),
@@ -146,7 +143,7 @@ public class WhyNotClient {
 
                     if(mc.player!=null) {
                         mc.player.displayClientMessage(
-                                Component.literal("Tiempo Cumplido")
+                                Component.translatable("whynot.tiempoCumplido")
                                         .withStyle(Style.EMPTY.withColor(ChatFormatting.GREEN).withBold(true)), true
                         );
                         mc.level.playLocalSound(
@@ -178,9 +175,9 @@ public class WhyNotClient {
         if(metext.abierta){
             metext.tickCounter++;
             if(metext.tickCounter >= metext.TIEMPO_ESPERA){
-                metext.oracion_actual = metext.agregado_texto(metext.oraciones[metext.numero_random.nextInt(metext.oraciones.length)], metext.cant_items );
+                metext.oracion_actual = metext.agregado_texto(metext.cant_items );
                 metext.pruebaTexto.setMessage(
-                    Component.literal(metext.oracion_actual).withStyle(Style.EMPTY.withColor(ChatFormatting.RED))
+                    metext.oracion_actual.copy().withStyle(Style.EMPTY.withColor(ChatFormatting.RED))
                 );
                 metext.tickCounter=0;
             }

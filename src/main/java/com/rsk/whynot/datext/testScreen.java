@@ -18,6 +18,8 @@ import net.minecraft.network.chat.Style;
 public class testScreen extends Screen {
     private EditBox timeBox;
 
+    public static final String INICIO = "whynot";
+
     private final Screen parent;
 
     public testScreen(Screen parent){
@@ -36,7 +38,7 @@ public class testScreen extends Screen {
         timeBox.setValue(String.valueOf(WhyNot.segundos));
         addRenderableWidget(timeBox);
 
-        this.addRenderableWidget(Button.builder(Component.literal("Guardar"), b -> {
+        this.addRenderableWidget(Button.builder(Component.translatable(INICIO+".guardar"), b -> {
             try {
                 WhyNot.segundos = Integer.parseInt(timeBox.getValue());
                 this.minecraft.player.displayClientMessage(
@@ -67,7 +69,7 @@ public class testScreen extends Screen {
 
 
         this.addRenderableWidget(
-            Button.builder(Component.literal("Fondos"),
+            Button.builder(Component.translatable(INICIO +".fondos"),
                             b -> {
                                 mc.setScreen(new FondoScreen(this)
 
@@ -79,14 +81,14 @@ public class testScreen extends Screen {
 
         this.addRenderableWidget(
             Button.builder(
-                Component.literal("Calculadora"),
+                Component.translatable( INICIO+ ".calculadora"),
                  a -> {Minecraft.getInstance().setScreen(new calculadoraScreen(this));}
                 )
                 .bounds(centerX + 70, centerY - 30 ,80, 20).build()
         );
 
         this.addRenderableWidget(Button.builder(  
-                Component.literal(" Sonidos "), // BOTON QUE LLEVA A LA CONFIG DE SELECCIONAR SONIDO
+            Component.translatable(INICIO + ".sonidos"),
                 button -> {
                     this.minecraft.setScreen(new selecsonido(this));
                 }

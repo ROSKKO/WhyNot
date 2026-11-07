@@ -2,6 +2,7 @@ package com.rsk.whynot;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -138,7 +139,7 @@ public class SomeHud {
 
             progresoDisplay = progresoActual*objProgreso; // Obtengo el progreso actual
             
-            medidorProgreso = String.format("Progress: %d / %d", (int)progresoDisplay, objProgreso);
+            medidorProgreso = String.format(Component.translatable("whynot.progreso").toString()+":%d / %d", (int)progresoDisplay, objProgreso);
 
             objMision = true;
             conseguirDatos = false; // ya no necesito conseguir los datos

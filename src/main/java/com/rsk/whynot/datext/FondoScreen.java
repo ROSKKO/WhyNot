@@ -34,7 +34,7 @@ public class FondoScreen extends Screen {
 
         this.addRenderableWidget(
             Button.builder(
-                Component.literal("Enter"),
+                Component.translatable(testScreen.INICIO + ".enter"),
                  a -> {
                     Minecraft.getInstance().setScreen(parent);
                  }

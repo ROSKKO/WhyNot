@@ -7,15 +7,18 @@ public class Config {
 
     public static final ModConfigSpec.ConfigValue<String> FONDO = BUILDER
                 .comment("Define el fondo para el contador de la bossbar")
+                .translation("whynot.config.fondo")
                 .define("fondo", WhyNot.MODID+ ":textures/gui/whynot_bossbar/test_bar_128x16.png");
 
 
     public static final ModConfigSpec.BooleanValue Loop = BUILDER
             .comment("ON = El contador volvera a empezar luego de terminar")
+            .translation("whynot.config.loop")
             .define("loop", false);
 
     public static final ModConfigSpec.BooleanValue Minutos = BUILDER
             .comment(" ON = El valor escrito en Editbox se toma como minutos, de forma que se multiplica por 60")
+            .translation("whynot.config.minutos")
             .define("mins", false);
 
 

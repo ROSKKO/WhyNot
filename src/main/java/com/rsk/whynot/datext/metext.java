@@ -21,14 +21,6 @@ public class metext {
 
     public static int cant_items =0;
 
-    public static String[] oraciones = {
-        "¿Seguro que declaraste todo esto?","Mucho diamante, poca factura A.",
-        "Mirá que el Creeper te hace una quita de subsidios...","El SAT / La AFIP te está observando.","¿Esto es tuyo o lo estás lavando?",
-        "No coal = no hoes", 
-        "Declaración de bienes en curso...", "Con %d items que pobre", "%s es PUTO",
-         "Evo the all mighty",
-        "Praise the lord Evo"
-    };
 
     public static Boolean abierta = false; // dice si el inventario esta abierto o no
     
@@ -43,7 +35,10 @@ public class metext {
 
     public static Random numero_random = new Random();
 
-    public static String oracion_actual;
+    // public static String oracion_actual;
+    public static final int CANT_SENTENSES = 15;
+    public static Component oraciones;
+    public static Component oracion_actual;
 
     public static StringWidget mitexto=null;
     
@@ -79,7 +74,7 @@ public class metext {
  
         cant_items = conteo_items(Minecraft.getInstance().player.getInventory());
 
-        oracion_actual = agregado_texto(oraciones[numero_random.nextInt(oraciones.length)], cant_items );
+        oracion_actual = agregado_texto(cant_items );
         
 
         // mitexto = new StringWidget(inv_posX,inv_posY - 20, 300, 20,Component.literal(
@@ -92,7 +87,7 @@ public class metext {
         //     oracion_actual).withStyle(Style.EMPTY.withColor(ChatFormatting.RED)),Minecraft.getInstance().font);
 
         pruebaTexto = new MultiLineTextWidget(inv_posX, inv_posY - 20,
-             Component.literal(oracion_actual)
+             oracion_actual.copy()
              .withStyle(Style.EMPTY.withColor(ChatFormatting.RED)),
              Minecraft.getInstance().font);
         pruebaTexto.setMaxWidth(inventario_width);
@@ -130,6 +125,18 @@ public class metext {
         }
         
         return texto;
+    }
+
+    public static Component agregado_texto(int cant_items){
+        int n = numero_random.nextInt(CANT_SENTENSES);
+        String oracion = "whynot.frase." + n;
+
+        if ( n == 7) {return Component.translatable(oracion, cant_items);};
+        if (n == 8) {
+            if(NOMBRE != null) Component.translatable(oracion, NOMBRE); else Component.translatable(oracion, "--");
+        }
+        return Component.translatable(oracion);
+        
     }
 
 

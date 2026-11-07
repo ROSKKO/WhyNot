@@ -43,7 +43,7 @@ public class selecsonido extends Screen {
 
 
         this.addRenderableWidget(Button.builder(
-                        Component.literal(">> Volver <<"),
+                        Component.translatable("whynot.volver"),
                         button -> {
                             this.minecraft.setScreen(parent);
                         }

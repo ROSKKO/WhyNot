@@ -8,9 +8,10 @@ import net.minecraft.client.gui.components.Button;
 
 
 import java.awt.*;
+
+import com.rsk.whynot.datext.testScreen;
 public class calculadoraScreen extends Screen {
     
-    public static String sorpresa="natalia";
 
     private final Screen parent;
     private String texto = "";
@@ -32,7 +33,7 @@ public class calculadoraScreen extends Screen {
 
 
         this.addRenderableWidget(Button.builder(
-                Component.literal(" Volver "),
+                Component.translatable(testScreen.INICIO +".volver"),
                 button -> {
                     this.minecraft.setScreen(parent);
                 })
@@ -57,11 +58,11 @@ public class calculadoraScreen extends Screen {
 
 
         this.addRenderableWidget(Button.builder(
-                Component.literal(" Calcular "),
+                Component.translatable("whynot.calcular"),
                 button -> {
                     int resul = Integer.parseInt( valor.getValue() ) / 64;
                     int suelto = Integer.parseInt( valor.getValue() )%64;
-                    texto = resul + " stacks & " + suelto + " bloques adicionales ";
+                    texto = resul + " stacks & " + suelto + Component.translatable("whynot.bloquesAdicionales").toString();
 
 
                 }
