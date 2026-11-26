@@ -38,8 +38,17 @@ public class FondoScreen extends Screen {
                  a -> {
                     Minecraft.getInstance().setScreen(parent);
                  }
-            ).bounds(centerX-40, centerY + 50, 80, 20)
+            ).bounds(centerX-90, centerY + 50, 80, 20)
             .build()
+        );
+
+        this.addRenderableWidget(
+            Button.builder(
+                Component.translatable(testScreen.INICIO + ".volver"),
+                a -> {
+                    Minecraft.getInstance().setScreen(parent);
+                }).bounds(centerX + 10, centerY + 50, 80, 20)
+                .build()
         );
     }
 
